@@ -1,221 +1,452 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Brilianti Adira</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio | Brilianti Adira Anamani</title>
+  <meta name="description" content="Portofolio Brilianti Adira Anamani - Mahasiswa Sains Data UIN Salatiga dengan pengalaman kepemimpinan dan pengabdian masyarakat.">
 
-    <style>
-        :root {
-            --soft-pink: #fff5f6;      
-            --primary-red: #a8233c;    
-            --accent-pink: #a8233c;    
-        }
-
-        body { font-family: 'Poppins', sans-serif; background-color: var(--soft-pink); color: #333; }
-        h1, h2, .brand-name { font-family: 'Playfair Display', serif; color: var(--primary-red); }
-
-        h1 {
-            font-family: 'Playfair Display', serif; 
-            color: var(--primary-red);             
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-            letter-spacing: 1px;                    
-        }
-
-        .hero-section {
-            padding: 80px 0;
-            background: white;
-            border-radius: 0 0 80px 0;
-            box-shadow: 15px 15px 0px var(--accent-pink);
-            margin-bottom: 50px;
-        }
-
-        .card-custom {
-            border: none;
-            border-radius: 15px;
-            background: white;
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--accent-pink);
-        }
-
-        .card-custom:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(168, 35, 60, 0.1);
-        }
-
-        .badge-skill {
-            background-color: #ffccd5;
-            color: var(--primary-red);
-            border-radius: 8px;
-            padding: 6px 12px;
-            margin: 4px;
-            display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .contact-info { color: var(--primary-red); font-size: 0.9rem; }
-    </style>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <!-- CSS -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand brand-name fs-3" href="#">Portofolio</a>
-            <div class="ms-auto contact-info d-none d-md-block">
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a class="navbar-brand" href="#">Portofolio</a>
+    <ul class="nav-links">
+      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#pengalaman">Pengalaman & Organisasi</a>
+    <a href="#pendidikan">Pendidikan</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-tagline">Mahasiswa Sains Data · UIN Salatiga</p>
+      <h1 class="hero-name">Brilianti Adira Anamani</h1>
+      <p class="hero-desc">
+        Mahasiswa Sains Data yang memiliki pengalaman kuat dalam kepemimpinan organisasi, pengabdian masyarakat, dan kegiatan kemahasiswaan. Siap berkontribusi dan terus berkembang.
+      </p>
+      <div class="hero-cta">
+        <a href="#kontak" class="btn-primary">
+          <i class="ti ti-send" aria-hidden="true"></i> Hubungi Saya
+        </a>
+        <a href="#pengalaman" class="btn-outline">
+          <i class="ti ti-briefcase" aria-hidden="true"></i> Lihat Pengalaman
+        </a>
+      </div>
+      <div class="skills-row">
+        <span class="skill-badge">Time Management</span>
+        <span class="skill-badge">Public Speaking</span>
+        <span class="skill-badge">Problem Solving</span>
+        <span class="skill-badge">Critical Thinking</span>
+        <span class="skill-badge">Microsoft Office</span>
+        <span class="skill-badge">Emotional Intelligence</span>
+        <span class="skill-badge">Adaptability</span>
+        <span class="skill-badge">Communication</span>
+        <span class="skill-badge">Financial Management</span>
+        <span class="skill-badge">Teamwork</span>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <!-- Ganti src ini dengan path foto kamu jika tidak menggunakan Django static -->
+        <img src="{% static 'profile-dira.jpeg' %}" alt="Foto Brilianti Adira Anamani" onerror="this.style.display='none'; this.parentElement.style.background='#ffccd5';">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN GRID ===== -->
+<div class="main-grid">
+
+  <!-- Kolom Kiri: Pengalaman & Organisasi -->
+  <div>
+    <h2 class="section-title" id="pengalaman">Pengalaman & Organisasi</h2>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px; margin-top:-16px;">
+      <i class="ti ti-info-circle" aria-hidden="true"></i> Klik pada kartu untuk melihat detail kegiatan
+    </p>
+
+    <!-- Cards — klik untuk modal -->
+    <article class="exp-card fade-in" onclick="openModal('mc-devils')" tabindex="0" role="button" aria-label="Detail MC Formal Devil's Advocate">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-kepem">Kepemimpinan</span>
+        <h5>MC Formal Devil's Advocate</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2026</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('tentor')" tabindex="0" role="button" aria-label="Detail Tentor Bimbingan Belajar">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-vol">Pendidikan</span>
+        <h5>Tentor Bimbingan Belajar</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025 – 2026</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('diklat-menwa')" tabindex="0" role="button" aria-label="Detail DikLat Resimen Mahasiswa">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-mil">Militer / MENWA</span>
+        <h5>DikLat Resimen Mahasiswa</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025 – 2026</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('btq-smp')" tabindex="0" role="button" aria-label="Detail Volunteer BTQ SMPN 07 Salatiga">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-vol">Volunteer</span>
+        <h5>Volunteer BTQ SMPN 07 Salatiga</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('mengajar-sd')" tabindex="0" role="button" aria-label="Detail Pengabdian Mengajar SDN 06 Salatiga">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-vol">Pengabdian</span>
+        <h5>Pengabdian Mengajar SDN 06 Salatiga</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('moderator-sikrab')" tabindex="0" role="button" aria-label="Detail Moderator SIKRAB Sains Data">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-kepem">Kepemimpinan</span>
+        <h5>Moderator SIKRAB Sains Data</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('mc-ektp')" tabindex="0" role="button" aria-label="Detail MC Formal E-KTP HMPS">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-kepem">Kepemimpinan</span>
+        <h5>MC Formal E-KTP HMPS</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('asisten-moderator')" tabindex="0" role="button" aria-label="Detail Asisten Moderator Pengabdian Masyarakat">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-vol">Pengabdian</span>
+        <h5>Asisten Moderator Pengabdian Masyarakat</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('diksar-menwa')" tabindex="0" role="button" aria-label="Detail Pendidikan Dasar Menwa 953 Kalimosodo">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-mil">Militer / MENWA</span>
+        <h5>Pendidikan Dasar Menwa 953 Kalimosodo</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('hmps-riset')" tabindex="0" role="button" aria-label="Detail HMPS Sains Data Divisi Riset & Keilmuan">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-org">Organisasi</span>
+        <h5>HMPS Sains Data — Divisi Riset & Keilmuan</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2024 – 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('anggota-menwa')" tabindex="0" role="button" aria-label="Detail Anggota Resimen Mahasiswa">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-mil">Militer / MENWA</span>
+        <h5>Anggota Resimen Mahasiswa</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2024 – 2025</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('pradiksar')" tabindex="0" role="button" aria-label="Detail Pendidikan PraDikSar Menwa">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-mil">Militer / MENWA</span>
+        <h5>Pendidikan PraDikSar Menwa 953 Kalimosodo</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2024</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+
+    <article class="exp-card fade-in" onclick="openModal('pkcd')" tabindex="0" role="button" aria-label="Detail PKCD Menwa 953 Kalimosodo">
+      <div class="exp-card-content">
+        <span class="exp-tag tag-mil">Militer / MENWA</span>
+        <h5>PKCD Menwa 953 Kalimosodo</h5>
+        <p class="year"><i class="ti ti-calendar-event" aria-hidden="true"></i> 2024</p>
+      </div>
+      <span class="exp-card-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></span>
+    </article>
+  </div>
+
+  <!-- Kolom Kanan: Pendidikan + Kontak -->
+  <div>
+    <!-- Pendidikan -->
+    <div class="sidebar-card fade-in" id="pendidikan">
+      <h2><i class="ti ti-school" aria-hidden="true" style="font-size:1.1rem;"></i> Pendidikan</h2>
+
+      <div class="edu-item">
+        <div class="edu-school">UIN Salatiga</div>
+        <div class="edu-detail">Sains Data &nbsp;·&nbsp; 2024 – Sekarang</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school" style="color:var(--text);">SMAN 4 Tambun Selatan</div>
+        <div class="edu-detail">MIPA &nbsp;·&nbsp; 2021 – 2024</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school" style="color:var(--text);">SMPN 11 Tambun Selatan</div>
+        <div class="edu-detail">2018 – 2021</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school" style="color:var(--text);">SDIT Islamia</div>
+        <div class="edu-detail">2012 – 2018</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school" style="color:var(--text);">R.A. Salsabila</div>
+        <div class="edu-detail">2011 – 2012</div>
+      </div>
+    </div>
+
+    <!-- Kontak -->
+    <div class="sidebar-card fade-in" id="kontak">
+      <h2><i class="ti ti-address-book" aria-hidden="true" style="font-size:1.1rem;"></i> Kontak</h2>
+
+      <a class="contact-item" href="https://wa.me/6285880783699" target="_blank" rel="noopener">
+        <div class="contact-icon"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">0858-8078-3699</div>
         </div>
-    </nav>
+      </a>
 
-    <header class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-7">
-                    <h1 class="display-4 fw-bold">Brilianti Adira Anamani </h1>
-                    <p class="text-uppercase fw-bold text-muted mb-4">Mahasiswa Sains Data - UIN Salatiga </p>
-                    <p class="lead">Seorang mahasiswa sains data yang memiliki pengalaman kuat dalam kepemimpinan organisasi dan pengabdian masyarakat. </p>
-                    
-                    <div class="mt-4">
-                        <span class="badge-skill">Time Management</span>
-                        <span class="badge-skill">Public Speaking</span>
-                        <span class="badge-skill">Problem Solving</span>
-                        <span class="badge-skill">Critical Thinking</span>
-                        <span class="badge-skill">Microsoft Office</span>
-                        <span class="badge-skill">Emotional Intelegence</span>
-                        <span class="badge-skill">Adapbilitas</span>
-                        <span class="badge-skill">Communication</span>
-                    </div>
-                </div>
-                <div class="col-md-5 text-center mt-5 mt-md-0">
-                    <div style="width: 280px; height: 280px; background: #ddd; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; margin: auto; overflow: hidden; border: 5px solid var(--accent-pink);">
-                        <img src="{% static 'profile-dira.jpeg' %}" alt="Brilianti Adira" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
-                </div>
-            </div>
+      <a class="contact-item" href="mailto:briliantiadira@gmail.com">
+        <div class="contact-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">briliantiadira@gmail.com</div>
         </div>
-    </header>
+      </a>
 
-    <main class="container py-5">
-        <div class="row">
-            <div class="col-md-8">
-                <h2 class="mb-4">Pengalaman & Organisasi</h2>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">MC Formal Devil's Advocate</h5>
-                    <p class="text-muted small">2026 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Tentor Bimbingan Belajar</h5>
-                    <p class="text-muted small">2025 - 2026 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">DikLat Resimen Mahasiswa </h5>
-                    <p class="text-muted small">2025 - 2026 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Volunteer BTQ SMPN 07 Salatiga</h5>
-                    <p class="text-muted small">2025</p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Pengabdian Mengajar SDN 06 Salatiga</h5>
-                    <p class="text-muted small">2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Moderator SIKRAB Sains Data</h5>
-                    <p class="text-muted small">2025</p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">MC Formal E-KTP HMPS</h5>
-                    <p class="text-muted small">2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Asisten Moderator Pengabdian Masyarakat</h5>
-                    <p class="text-muted small">2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Pendidikan Dasar Menwa 953 Kalimosodo</h5>
-                    <p class="text-muted small">2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">HMPS Sains Data - Divisi Riset & Keilmuan </h5>
-                    <p class="text-muted small">2024 - 2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Anggota Resimen Mahasiswa </h5>
-                    <p class="text-muted small">2024 - 2025 </p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Pendidikan PraDikSar Menwa 953 Kalimosodo</h5>
-                    <p class="text-muted small">2024</p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">PKCD Menwa 953 Kalimosodo</h5>
-                    <p class="text-muted small">2024</p>
-                </div>
-                <div class="card card-custom p-4 mb-3">
-                    <h5 class="fw-bold">Ketua Ekstrakurikuler Karate </h5>
-                    <p class="text-muted small">SMAN 4 Tambun Selatan (2022-2023)</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <h2 class="mb-4">Pendidikan</h2>
-                <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <strong style="color: var(--primary-red);">UIN Salatiga</strong><br>
-                        <small>Sains Data (2024 - Sekarang)</small>
-                    </li>
-                    <li class="mb-3">
-                        <strong>SMAN 4 Tambun Selatan</strong><br>
-                        <small>MIPA (2021 - 2024)</small>
-                    </li>
-                    <li class="mb-3">
-                        <strong>SMPN 11 Tambun Selatan</strong><br>
-                        <small>2018 - 2021</small>
-                    </li>
-                    <li class="mb-3">
-                        <strong>SDIT Islamia</strong><br>
-                        <small>2012 - 2018</small>
-                    </li>
-                    <li class="mb-3">
-                        <strong>R.A. Salsabila</strong><br>
-                        <small>2011 - 2012</small>
-                    </li>
-                </ul>
-                <div class="card card-custom p-4 mt-4" data-aos="fade-up style="background-color: white; border-top: 5px solid var(--primary-red);">
-                    <h2 class="fw-bold mb-3" style="color: var(--primary-red);">Kontak</h2>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-2">
-                            <small class="text-muted d-block">WhatsApp</small>
-                            <strong>0858-8078-3699</strong>
-                        </li>
-                        <li class="mb-2">
-                            <small class="text-muted d-block">Social Media</small>
-                            <strong>briliantdira</strong>
-                        </li>
-                        <li class="mb-2">
-                            <small class="text-muted d-block">Email</small>
-                            <strong>briliantiadira@gmail.com</strong>
-                        </li>
-                        <li class="mb-2">
-                            <small class="text-muted d-block">LinkedIn</small>
-                            <strong>brilianti-adira-anamani</strong>
-                        </li>
-                        <li class="mb-2">
-                            <small class="text-muted d-block">Address</small>
-                            <strong>Perumahan Pesona Mutiara 1 Tambun C1/12A Desa Sumberjaya, Kec.Tambun Selatan, Kab. Bekasi</strong>
-                        </li>
-                    </ul>
-                </div>
+      <a class="contact-item" href="https://www.linkedin.com/in/brilianti-adira-anamani" target="_blank" rel="noopener">
+        <div class="contact-icon"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">brilianti-adira-anamani</div>
         </div>
-    </main>
+      </a>
 
-    <footer class="bg-white py-4 mt-5 text-center border-top">
-        <p class="text-muted small mb-0">Designed with ❤️ by</p>
-        <h5 class="signature">Brilianti Adira Anamani</h5>
-    </footer>
+      <a class="contact-item" href="https://www.instagram.com/briliantdira" target="_blank" rel="noopener">
+        <div class="contact-icon"><i class="ti ti-brand-instagram" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@briliantdira</div>
+        </div>
+      </a>
+
+      <div class="contact-item" style="cursor:default;">
+        <div class="contact-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-label">Alamat</div>
+          <div class="contact-value">Perum. Pesona Mutiara 1 Tambun, Kab. Bekasi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="footer-sub">Designed with ❤️ by</p>
+  <p class="footer-name">Brilianti Adira Anamani</p>
+  <p class="footer-sub" style="margin-top:8px; font-size:0.75rem;">Mahasiswa Sains Data · UIN Salatiga · 2026</p>
+</footer>
+
+<!-- ===== MODAL OVERLAY ===== -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Tutup modal">
+      <i class="ti ti-x" aria-hidden="true"></i>
+    </button>
+    <div class="modal-tag" id="modalTag"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <p class="modal-year" id="modalYear"></p>
+    <div class="modal-divider"></div>
+    <div class="modal-intro" id="modalIntro"></div>
+    <ul class="modal-highlights" id="modalHighlights"></ul>
+    <div class="modal-photo-placeholder" id="modalPhoto">
+      <i class="ti ti-photo" aria-hidden="true"></i>
+      <p>Dokumentasi kegiatan dapat ditambahkan di sini</p>
+      <p style="font-size:0.75rem; margin-top:4px;">Foto, video, atau sertifikat</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const modalData = {
+  'mc-devils': {
+    tag: '<span class="exp-tag tag-kepem">Kepemimpinan</span>',
+    title: 'MC Formal Devil\'s Advocate',
+    year: '📅 2026',
+    intro: 'Berperan sebagai Master of Ceremony (MC) dalam acara Devil\'s Advocate yang merupakan kegiatan debat atau diskusi akademik formal. Kegiatan ini menuntut kemampuan berbicara di depan umum yang kuat, penguasaan alur acara, serta profesionalisme tinggi dalam memandu jalannya sesi.',
+    highlights: ['Memandu acara secara formal', 'Mengelola waktu dan alur acara dengan profesional', 'Melatih kemampuan public speaking di forum resmi']
+  },
+  'tentor': {
+    tag: '<span class="exp-tag tag-vol">Pendidikan</span>',
+    title: 'Tentor Bimbingan Belajar',
+    year: '📅 2025 – 2026',
+    intro: 'Aktif sebagai tentor atau pengajar di lembaga bimbingan belajar. Kegiatan ini mengasah kemampuan komunikasi, kesabaran, serta penguasaan materi akademik untuk membantu siswa mencapai hasil belajar yang optimal.',
+    highlights: ['Mengajar dan membimbing siswa secara intensif', 'Menyusun materi ajar yang sesuai kebutuhan siswa', 'Memantau perkembangan belajar peserta didik', 'Membangun kepercayaan diri siswa dalam belajar']
+  },
+  'diklat-menwa': {
+    tag: '<span class="exp-tag tag-mil">Militer / MENWA</span>',
+    title: 'DikLat Resimen Mahasiswa',
+    year: '📅 2025 – 2026',
+    intro: 'Menjabat sebagai Pendidikan dan Latihan (DikLat) Resimen Mahasiswa sebagai bagian dari pembinaan anggota aktif. DikLat merupakan staff yang bertujuan meningkatkan kemampuan kepemimpinan, kedisiplinan, dan kesiapsiagaan anggota.',
+    highlights: ['Pelatihan kepemimpinan dan kedisiplinan tingkat lanjut', 'Pengembangan kemampuan fisik dan mental', 'Pemahaman prosedur dan protokol organisasi militer mahasiswa', 'Pembinaan karakter dan jiwa korsa']
+  },
+  'btq-smp': {
+    tag: '<span class="exp-tag tag-vol">Volunteer</span>',
+    title: 'Volunteer BTQ SMPN 07 Salatiga',
+    year: '📅 2025',
+    intro: 'Terlibat sebagai relawan dalam program Baca Tulis Al-Qur\'an (BTQ) di SMPN 07 Salatiga. Kegiatan ini merupakan bentuk pengabdian kepada masyarakat dengan membantu siswa SMP dalam meningkatkan kemampuan membaca dan menulis Al-Qur\'an.',
+    highlights: ['Mengajarkan teknik membaca Al-Qur\'an yang benar', 'Membimbing siswa dalam penulisan huruf hijaiyah', 'Berkoordinasi dengan guru dan pihak sekolah', 'Meningkatkan literasi agama di lingkungan pendidikan']
+  },
+  'mengajar-sd': {
+    tag: '<span class="exp-tag tag-vol">Pengabdian</span>',
+    title: 'Pengabdian Mengajar SDN 06 Salatiga',
+    year: '📅 2025',
+    intro: 'Melaksanakan kegiatan pengabdian masyarakat berupa program mengajar literasi statistika di SDN 06 Salatiga. Kegiatan ini merupakan wujud nyata kontribusi mahasiswa dalam membantu meningkatkan kualitas pendidikan dasar di lingkungan sekitar kampus.',
+    highlights: ['Menyampaikan materi pelajaran kepada siswa SD', 'Menciptakan suasana belajar yang menyenangkan', 'Berkolaborasi dengan guru kelas dalam proses pembelajaran', 'Membantu siswa yang mengalami kesulitan belajar']
+  },
+  'moderator-sikrab': {
+    tag: '<span class="exp-tag tag-kepem">Kepemimpinan</span>',
+    title: 'Moderator SIKRAB Sains Data',
+    year: '📅 2025',
+    intro: 'Dipercaya sebagai moderator dalam acara SIKRAB (Siang Keakraban) Sains Data. Peran ini membutuhkan kemampuan memimpin diskusi, menjaga kondusivitas forum, dan menyimpulkan hasil pembicaraan secara tepat dan padat.',
+    highlights: ['Memandu sesi diskusi dan silaturahmi antar anggota', 'Mengelola waktu dan agenda acara', 'Menjaga suasana forum tetap kondusif dan produktif', 'Merangkum hasil diskusi dengan efektif']
+  },
+  'mc-ektp': {
+    tag: '<span class="exp-tag tag-kepem">Kepemimpinan</span>',
+    title: 'MC Formal E-KTP HMPS',
+    year: '📅 2025',
+    intro: 'Berperan sebagai MC dalam kegiatan E-KTP (Evaluasi Kepengurusan Tengah Periode) yang diselenggarakan oleh Himpunan Mahasiswa Program Studi (HMPS). Acara ini merupakan ajang evaluasi dan penilaian terhadap kinerja pengurus himpunan selama setengah periode.',
+    highlights: ['Memandu acara resmi tingkat himpunan', 'Menghidupkan suasana dan antusiasme peserta', 'Berkoordinasi dengan panitia dan pengisi acara', 'Menjaga profesionalisme selama acara berlangsung']
+  },
+  'asisten-moderator': {
+    tag: '<span class="exp-tag tag-vol">Pengabdian</span>',
+    title: 'Asisten Moderator Pengabdian Masyarakat',
+    year: '📅 2025',
+    intro: 'Berperan sebagai asisten moderator dalam kegiatan pengabdian masyarakat yang diselenggarakan oleh kampus. Kegiatan ini menuntut kemampuan koordinasi, komunikasi, dan dukungan teknis dalam kelancaran acara.',
+    highlights: ['Membantu moderator utama dalam mengelola sesi acara', 'Berkoordinasi dengan narasumber dan peserta', 'Memastikan kelancaran teknis dan non-teknis acara', 'Mendokumentasikan jalannya kegiatan pengabdian']
+  },
+  'diksar-menwa': {
+    tag: '<span class="exp-tag tag-mil">Militer / MENWA</span>',
+    title: 'Pendidikan Dasar Menwa 953 Kalimosodo',
+    year: '📅 2025',
+    intro: 'Menyelesaikan Pendidikan Dasar (Diksar) Resimen Mahasiswa 953 Kalimosodo. Diksar adalah tahapan awal dan paling fundamental dalam pendidikan Menwa, yang membentuk karakter, kedisiplinan, dan kemampuan dasar seorang anggota Resimen Mahasiswa.',
+    highlights: ['Pelatihan fisik dan mental intensif selama pendidikan dasar', 'Pengenalan dan penerapan peraturan serta tata upacara militer', 'Pembentukan karakter disiplin dan tanggung jawab', 'Penguatan jiwa kebangsaan dan bela negara']
+  },
+  'hmps-riset': {
+    tag: '<span class="exp-tag tag-org">Organisasi</span>',
+    title: 'HMPS Sains Data — Divisi Riset & Keilmuan',
+    year: '📅 2024 – 2025',
+    intro: 'Aktif sebagai anggota Himpunan Mahasiswa Program Studi (HMPS) Sains Data pada Divisi Riset dan Keilmuan. Divisi ini berfokus pada pengembangan budaya riset, pengetahuan akademik, dan kemampuan analisis data di kalangan mahasiswa Sains Data.',
+    highlights: ['Merencanakan dan melaksanakan kegiatan riset mahasiswa', 'Mengorganisir seminar, diskusi, dan kajian keilmuan', 'Memfasilitasi pengembangan kemampuan akademik anggota', 'Berkolaborasi lintas divisi dalam program himpunan']
+  },
+  'anggota-menwa': {
+    tag: '<span class="exp-tag tag-mil">Militer / MENWA</span>',
+    title: 'Anggota Resimen Mahasiswa',
+    year: '📅 2024 – 2025',
+    intro: 'Bergabung dan aktif sebagai anggota Resimen Mahasiswa (Menwa) 953 Kalimosodo UIN Salatiga. Menwa merupakan komponen cadangan pertahanan negara di lingkungan perguruan tinggi yang mendidik mahasiswa untuk memiliki jiwa bela negara dan kepemimpinan.',
+    highlights: ['Aktif dalam kegiatan rutin dan latihan Resimen Mahasiswa', 'Mengikuti apel, upacara, dan kegiatan resmi Menwa', 'Membangun jiwa korsa dan solidaritas antar anggota', 'Berkontribusi dalam kegiatan sosial dan bela negara']
+  },
+  'pradiksar': {
+    tag: '<span class="exp-tag tag-mil">Militer / MENWA</span>',
+    title: 'Pendidikan PraDikSar Menwa 953 Kalimosodo',
+    year: '📅 2024',
+    intro: 'Mengikuti PraDikSar (Pra Pendidikan Dasar) sebagai tahap persiapan sebelum memasuki Diksar Resimen Mahasiswa. Tahap ini memperkenalkan dasar-dasar kedisiplinan, fisik, dan mental yang diperlukan sebelum pendidikan inti.',
+    highlights: ['Persiapan fisik dan mental pra-pendidikan dasar', 'Pengenalan nilai-nilai dan tradisi Resimen Mahasiswa', 'Adaptasi dengan lingkungan dan budaya organisasi', 'Seleksi dan penilaian kesiapan calon anggota']
+  },
+  'pkcd': {
+    tag: '<span class="exp-tag tag-mil">Militer / MENWA</span>',
+    title: 'PKCD Menwa 953 Kalimosodo',
+    year: '📅 2024',
+    intro: 'Mengikuti PKCD (Pendidikan Kawah Candra Di muka) dalam lingkup Resimen Mahasiswa 953 Kalimosodo. PKCD merupakan pelatihan yang dirancang untuk membangun fondasi kepemimpinan dasar bagi anggota Menwa.',
+    highlights: ['Pelatihan teknik kepemimpinan dasar', 'Pengembangan kemampuan koordinasi kelompok', 'Penguatan nilai-nilai integritas dan tanggung jawab']
+  }
+};
+
+function openModal(id) {
+  const d = modalData[id];
+  if (!d) return;
+  document.getElementById('modalTag').innerHTML = d.tag;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalYear').textContent = d.year;
+  document.getElementById('modalIntro').textContent = d.intro;
+  const ul = document.getElementById('modalHighlights');
+  ul.innerHTML = d.highlights.map(h => `<li>${h}</li>`).join('');
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalClose').focus();
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Keyboard open modal
+document.querySelectorAll('.exp-card').forEach(card => {
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
+});
+
+// Hamburger menu
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
