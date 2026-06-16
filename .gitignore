@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Environment variables (rahasia — jangan di-commit)
+.env
+.env.local
+
+# Django
+db.sqlite3
+staticfiles/
+*.log
+
+# Dokumentasi lokal — hanya disimpan di laptop, tidak di-upload ke GitHub
+RINGKASAN_PERUBAHAN.md
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
